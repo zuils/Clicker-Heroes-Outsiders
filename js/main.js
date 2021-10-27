@@ -217,7 +217,7 @@ function refresh(test, ancientSouls, simulating) {
     let kuma = -8 * (1 - Math.exp(-0.025 * ancientLevels));
     let atman = 75 * (1 - Math.exp(-0.013 * ancientLevels));
     let bubos = -5 * (1 - Math.exp(-0.002 * ancientLevels));
-    let chronos = 30 * (1 - Math.exp(-0.034 * ancientLevels));
+    let chronos = 30 * (1 - Math.exp(-0.01 * ancientLevels));
     let dora = 9900 * (1 - Math.exp(-0.002 * ancientLevels));
 
     // Unbuffed Stats
@@ -236,7 +236,7 @@ function refresh(test, ancientSouls, simulating) {
             : Math.max(0, Math.ceil(((unbuffedMonstersPerZone - 2.1) / - kuma - 1) / 0.125));
     let rhageistCap = Math.ceil(((100 - unbuffedPrimalBossChance) / atman - 1) / 0.25);
     let kariquaCap = Math.ceil(((unbuffedBossHealth - 5) / -bubos - 1) / 0.5);
-    let orphalasCap = Math.max(1, Math.ceil(((2 - unbuffedBossTimer) / chronos - 1) / 0.75)) + 2;
+    let orphalasCap = Math.ceil(((100 - unbuffedPrimalBossChance) / chronos - 1) / 0.25);
     let senakhanCap = Math.max(1, Math.ceil((100 / unbuffedTreasureChestChance) / (dora / 100 + 1) - 1));
 
     // Outsider Ratios
@@ -249,12 +249,12 @@ function refresh(test, ancientSouls, simulating) {
         let ratioChange = ancientSouls / 100;
         rhageistRatio = 0.2*ratioChange;
         kariquaRatio = 0.01*ratioChange;
-        orphalasRatio = 0.05*ratioChange;
+        orphalasRatio = 0.2*ratioChange;
         senakhanRatio = 0.05*ratioChange;
     } else if (ancientSouls < 21000) {
         rhageistRatio = 0.2;
         kariquaRatio = 0.01;
-        orphalasRatio = 0.05;
+        orphalasRatio = .2;
         senakhanRatio = 0.05;
     } else {
         rhageistRatio = 0;
@@ -285,8 +285,10 @@ function refresh(test, ancientSouls, simulating) {
 
     this.remainingAncientSouls -= this.getCostFromLevel(borbLevel);
     
-    // Xyl sucks
-    let xyliqilLevel = 0;
+    // Xyl is cool now
+    let xyliqilLevel = this.getCostFromLevel(orphalasCap) > (this.remainingAncientSouls * orphalasRatio)
+    ? this.spendAS(orphalasRatio, this.remainingAncientSouls)
+    : orphalasCap;
     this.remainingAncientSouls -= this.getCostFromLevel(xyliqilLevel);
 
     // Remove souls if using Reserve AS
@@ -302,9 +304,8 @@ function refresh(test, ancientSouls, simulating) {
     let kariquaLevel = this.getCostFromLevel(kariquaCap) > (this.remainingAncientSouls * kariquaRatio)
         ? this.spendAS(kariquaRatio, this.remainingAncientSouls)
         : kariquaCap;
-    let orphalasLevel = this.getCostFromLevel(orphalasCap) > (this.remainingAncientSouls * orphalasRatio)
-        ? this.spendAS(orphalasRatio, this.remainingAncientSouls)
-        : orphalasCap;
+    // Orph sucks
+    let orphalasLevel = 0;
     let senakhanLevel = this.getCostFromLevel(senakhanCap) > (this.remainingAncientSouls * senakhanRatio)
         ? this.spendAS(senakhanRatio, this.remainingAncientSouls)
         : senakhanCap;
