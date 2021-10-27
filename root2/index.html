@@ -4,45 +4,46 @@
 	<meta http-equiv="content-type" content="text/html;">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
-	<meta name="theme-color" content="#47296b">
-	<meta name="Description" content="Get Outsider Suggestions for the root2 mod of Clicker Heroes.">
+    <meta name="theme-color" content="#5060b0">
+    <meta name="Description" content="Get Outsider Suggestions for Clicker Heroes version e10 or e11.">
 	<title>CH Outsider Calculator</title>
 	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main-v003.css">
-	<link rel="stylesheet" href="css/light-theme-v003.css" id="theme-light" title="Light">
-	<link rel="stylesheet" href="css/dark-theme-v003.css" id="theme-dark" title="Dark" disabled>
-	<link rel="manifest" href="manifest.json">
-	<link rel="apple-touch-icon" sizes="192x192" href="icons/ruby192.png">
-	<script>
-		if (localStorage) {
-			if (localStorage.getItem("darkmode")==="true") {
-				document.getElementById("theme-light").disabled = true;
-				document.getElementById("theme-dark").disabled = false;
-			}
-		}
-		if ('serviceWorker' in navigator) {
-			window.addEventListener('load', function() {
-				navigator.serviceWorker.register('sw.js').then(function(registration) {
-				
-				}, function(err) {
-					console.log('ServiceWorker registration failed: ', err);
-				});
-			});
-		}
-	</script>
+	<link rel="stylesheet" href="css/main-v005.css">
+    <link rel="stylesheet" href="css/light-theme-v004.css" id="theme-light" title="Light">
+    <link rel="stylesheet" href="css/dark-theme-v004.css" id="theme-dark" title="Dark" disabled>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/ruby192.png">
+    <script>
+        if (localStorage) {
+            if (localStorage.getItem("darkmode")==="true") {
+                document.getElementById("theme-light").disabled = true;
+                document.getElementById("theme-dark").disabled = false;
+            }
+        }
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
+                
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
 	<link rel="icon" type="image/png" href="Ruby.png">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
 </head>
 	<body>
-		<main class="container">
+		<main class="container" role="main">
 			<div class="boxes">
 				<div class="box-12 collapsible">
 					<div class="panel">
-						<div class="title">CH root 2 Outsider Recommender</div>
+						<div class="title">Info</div>
 						<div class="content">
-							<p>This is for the root2 mod of CH. Visit the <a href="https://discordapp.com/invite/jT7zH9g">CH Discord</a> for more info about root2.</p>
-							<p>Download the <a href="https://www.dropbox.com/s/b85db73f7z3zdfn/HeroClickerroot2.swf?dl=0">Standalone Game</a> or play it from your <a href="swf">Browser</a>.</p>
-							<p>For unmodded Clicker Heroes, use the regular <a href="..">CH Outsider Calculator</a>.</p>
+							<p>Info/Feedback: <a href="https://redd.it/7on5it">https://redd.it/7on5it</a></p>
+							<p>End of transcension estimates are only accurate for active pushing, switch to Active or Hybrid ASAP if you are still playing Idle.</p>
+							<p>Check out the <a href="root2">Root2 Outsider Calculator</a></p>
+							<p>Edited by zuils</p>
 						</div>
 					</div>
 				</div>
@@ -60,23 +61,35 @@
 								<input value="0" id="ancient_souls" type="text">
 							</div>
 							<div id="TP">TP: 2.0000%</div>
-							<br><input type="checkbox" id="dark" class="checkbox" onclick="changeTheme()"><label for="dark">Dark Theme</label>
-							<br><input type="checkbox" id="bpSkip" class="checkbox" onclick="skipCB()"><label for="bpSkip">Skip Breakpoints</label>
 							<br><button id="calculateButton" onclick="clearOutput();refresh()">Calculate</button>
-							<br><br>
-							<label for="savegame">Input Save</label>
+                            <br><br>
+                            <label for="savegame">Input Save</label>
 							<textarea id="savegame" placeholder="Paste your save game here" autofocus onclick="this.focus();this.select()" onblur="readSave()"></textarea>
-							<div id="autoLevelDiv" style="display:none;">
-								<label for="outputsave">Output Save</label>
-								<textarea id="outputsave" placeholder="Import this save into your game" onclick="this.select()"></textarea>
+                            <div id="autoLevelDiv" style="display:none;">
+                                <label for="outputsave">Output Save</label>
+                                <textarea id="outputsave" placeholder="Import this save into your game" onclick="this.select()"></textarea>
+                            </div>
+							<button id="readSaveButton" onclick="readSave()">Read Save</button>
+							<hr>
+							<button id="showSettings" onclick="showSettingsClick()">Show Settings</button>
+							<div id="settings">
+								<div class="numberInput">
+                                    <input type="checkbox" id="autolevel" class="checkbox" onclick="changeAutoLevel()"><label for="autolevel">Autolevel</label>
+                                    <br><input type="checkbox" id="dark" class="checkbox" onclick="changeTheme()"><label for="dark">Dark Theme</label>
+                                    <br><input type="checkbox" id="simulator" class="checkbox" onclick="changeSimulator();refresh()" checked><label for="simulator">Transcension Simulator</label>
+									<br><label for="zoneOverride">Zone override:</label>
+									<input id="zoneOverride" type="text" style="font-size:12px;">
+                                    <br><input type="checkbox" id="helpText" class="checkbox" onclick="clearOutput();refresh()" checked><label for="helpText">Help Text</label>
+                                    <br><input type="checkbox" id="levelOrphalas" class="checkbox" onclick="clearOutput();refresh()" checked><label for="levelOrphalas">Level Xyliqil</label>
+                                    </br><input type="checkbox" id="reserveAS" class="checkbox" onclick="clearOutput();refresh()"><label for="reserveAS">Reserve Ancient Souls</label>
+                                    <br><input type="checkbox" id="statsHZE" class="checkbox" onclick="toggleStatsHZE()"><label for="statsHZE">Stats at HZE</label>
+								</div>
+								<button id="defaultButton" onclick="defaultClick()">Set to Default</button>
 							</div>
-							<input type="checkbox" id="autolevel" class="checkbox" onclick="changeAutoLevel()"><label for="autolevel">Autolevel</label>
-                            <br><input type="checkbox" id="helpText" class="checkbox" onclick="clearOutput();refresh()" checked><label for="helpText">Help Text</label>
-							<br><button id="readSaveButton" onclick="readSave()">Read Save</button>
 						</div>
 					</div>
 				</div>
-				<div class="box-8">
+				<div class="box-8" id="results">
 					<div class="panel">
 						<div class="title">Outsider Recommendations</div>
 						<div class="content">
@@ -97,26 +110,52 @@
 				</div>
 			</div>
 			<div class="boxes">
-				<div class="box-4">
+				<div class="box-4 boxes">
+                    <div class="box-12">
+                        <div class="panel">
+                            <div class="title">End of Transcension Estimates</div>
+                            <div class="content">
+                                <div id="predictedHZE"></div>
+                                <div id="predictedHS"></div>
+                                <div id="predictedAS"></div>
+                                <div id="predictedTP"></div>
+                                <br>
+                                <div id="predictedAncients"></div>
+                                <div id="kuma"></div>
+                                <div id="atman"></div>
+                                <div id="bubos"></div>
+                                <div id="chronos"></div>
+                                <div id="dora"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-12">
+                        <div class="panel">
+                            <div class="title">Zone Breakpoints</div>
+                            <div class="content">
+                                <div id="HighMpz"></div>
+                                <div id="5PBC"></div>
+                                <div id="90BHP"></div>
+                                <div id="2sTimer"></div>
+                                <div id="99TTC"></div>
+                                <div id="1TTC"></div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="box-4" id="unbuffedHZE" style="display:none">
 					<div class="panel">
-						<div class="title">End of Transcension Estimates</div>
+						<div class="title">Unbuffed stats at HZE</div>
 						<div class="content">
-							<div id="predictedHZE"></div>
-							<div id="predictedHS"></div>
-							<div id="predictedAS"></div>
-							<div id="predictedTP"></div>
-							<br>
-							<div id="predictedAncients"></div>
-							<div id="kuma"></div>
-							<div id="atman"></div>
-							<div id="bubos"></div>
-							<div id="chronos"></div>
-							<div id="dora"></div>
-							
+							<div id="unbuffedMPZ"></div>
+							<div id="unbuffedTCC"></div>
+							<div id="unbuffedBossHP"></div>
+							<div id="unbuffedTimer"></div>
+							<div id="unbuffedPBC"></div>
 						</div>
 					</div>
 				</div>
-				<div class="box-4">
+				<div class="box-4" id="buffedHZE" style="display:none">
 					<div class="panel">
 						<div class="title">Buffed stats at HZE</div>
 						<div class="content">
@@ -128,10 +167,30 @@
 						</div>
 					</div>
 				</div>
-		</main>
-		<script src="js/pako.min.js"></script>
-		<script src="js/readSave.js"></script>
-		<script src="js/main.js"></script>
-		<script src="js/autolevel.js"></script>
+                <div class="box-8" id="simulatorBox">
+					<div class="panel">
+						<div class="title">Transcension Simulator</div>
+						<div class="content">
+                            <table id="transcensionTable" cellspacing="0">
+								<thead><tr>
+									<th>Ancient Souls</th>
+									<th>Borb</th>
+									<th>Highest Zone</th>
+                                    <th>Final MpZ</th>
+                                    <th>Time</th>
+								</tr></thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/pako.min.js" defer></script>
+		<script src="js/readSave.js" defer></script>
+		<script src="js/main.js" defer></script>
+        <script src="js/autolevel.js" defer></script>
+        <script src="js/simulator.js" defer></script>
 	</body>
 </html>
