@@ -3,898 +3,500 @@ Math.log10 = function(x) {
     return Math.log(x) / Math.LN10;
 }
 
-var userData = {};
+let borbToZone = [];
+borbToZone[184] = null;
+borbToZone = borbToZone.concat([966409,979782,979782,984260,984260,984260,988749,988749,988749,988749,993248,993248,993248,993248,993248,993248,993248,993248,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1021386,1309598,1309598,1309598,1309598,1309598,1309598,1325760,1325760,1340689,1340689,1340689,1340689,1340689,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,1367215,2115108,2115108,2115108,2134603,2134603,2134603,2134603,2134603,2162796,2180849,2180849,2180849,2180849,2180849,2180849,2180849,2197526,2197526,2197526,2197526,2197526,2212929,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2227158,2429081,2459157,2459157,2459157,2459157,2459157,2459157,2459157,2459157,2459157,2486938,2486938,2486938,2486938,2486938,2486938,2486938,2486938,2547841,2547841,2547841,2547841,2547841,2547841,2547841,2547841,2547841,2580393,2580393,2580393,2580393,2580393,2580393,2610461,2610461,2610461,2610461,2610461,2610461,2610461,2638235,2638235,2638235,2638235,2638235,2638235,2638235,2638235,2638235,2638235,2638235,2663889,2663889,2663889,2663889,2663889,2663889,2663889,2663889,2663889,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2741250,2822756,2822756,2822756,2822756,2822756,2867255,2867255,2867255,2867255,2867255,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2886991,2984324,2984324,2984324,2984324,2984324,2984324,2984324,2984324,2984324,3067321,3067321,3067321,3067321,3067321,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3115671,3160331,3160331,3201583,3201583,3201583,3201583,3201583,3201583,3201583,3201583,3201583,3201583,3239688,3239688,3239688,3239688,3239688,3239688,3239688,3239688,3239688,3274884,3274884,3274884,3274884,3274884,3274884,3274884,3307395,3307395,3307395,3307395,3307395,3307395,3307395,3307395,3307395,3348983,3348983,3348983,3348983,3348983,3348983,3348983,3348983,3348983,3348983,3348983,3348983,3387398,3387398,3387398,3387398,3387398,3387398,3455657,3455657,3455657,3455657,3455657,3455657,3455657,3455657,3497480,3497480,3497480,3497480,3497480,3497480,3497480,3497480,3497480,3497480,3497480,3556905,3556905,3556905,3556905,3556905,3556905,3556905,3556905,3556905,3556905,3556905,3611794,3611794,3611794,3611794,3611794,3611794,3611794,3611794,3611794,3611794,3611794,3611794,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3662496,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3720867,3774784,3774784,3774784,3774784,3774784,3774784,3824586,3824586,3824586,3824586,3824586,3824586,3824586,3824586,3824586,3870588,3870588,3870588,3870588,3870588,3870588,3870588,3870588,3870588,3870588,3870588,3870588,3924638,3924638,3924638,3924638,3974563,4020679,4020679,4020679,4020679,4020679,4020679,4020679,4020679,4020679,4020679,4020679,4020679,4063275,4063275,4102621,4102621,4102621,4102621,4102621,4102621,4102621,4102621,4102621,4102621,4102621,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4171306,4234750,4234750,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4304891,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4369680,4429524,4429524,4429524,4429524,4429524,4429524,4429524,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4496360,4558096,4558096,4667794,4667794,4667794,4667794,4667794,4667794,4667794,4667794,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4727997,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4834971,4882417,4882417,4882417,4882417,4882417,4882417,4882417,4926243,4926243,4926243,4926243,4926243,4926243,4926243,4926243,4926243,4926243,4926243,5070557,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5100026,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5152389,5175613,5175613,5175613,5175613,5319130,5319130,5329630,5329630,5339329,5339329,5339329,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5348289,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205,5452205]);
+
+function decimalAdjust(type, value, exp) {
+    // If the exp is undefined or zero...
+    if (typeof exp === 'undefined' || +exp === 0) {
+        return Math[type](value);
+    }
+    value = +value;
+    exp = +exp;
+    // If the value is not a number or the exp is not an integer...
+    if (value === null || isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+        return NaN;
+    }
+    // Shift
+    value = value.toString().split('e');
+    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    // Shift back
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+}
+
+Math.round10 = function(value, exp) {
+    return decimalAdjust('round', value, exp);
+}
 
 var settingsVisible = false;
 
-function showAdvancedClick() {
-    $("#advancedSettings").toggle(100, function(){
-        $("#showAdvanced").html( (settingsVisible = !settingsVisible) ? "Hide Advanced Settings" : "Show Advanced Settings");
+function showSettingsClick() {
+    $("#settings").toggle(100, function(){
+        $("#showSettings").html( (settingsVisible = !settingsVisible) ? "Hide Settings" : "Show Settings");
     });
 }
 
 function setDefaults() {
-    $("#minZones").val(20000);
-    $("#ascTime").val(0);
-    $("#QAStrat").val("perRuby");
+    $("#zoneOverride").val(0);
 }
-
 
 function defaultClick() {
     setDefaults();
-    refresh();
+}
+
+function getCostFromLevel(level) {
+    return (level+1)*(level/2);
+}
+
+function spendAS( ratio, as ) {
+    var spendable = ratio*as;
+    if( spendable<1 ) return 0;
+    return Math.floor( Math.pow( 8*spendable + 1, 0.5 )/2 - 0.5 );
+}
+
+function nOS( ancientSouls, transcendentPower, zone ) {
+    if(ancientSouls > 20000) {
+        ancientSouls -= 11325;
+        let pony = spendAS(0.88, ancientSouls);
+        ancientSouls -= getCostFromLevel(pony);
+        return [150, ancientSouls, pony];
+    }
+    let hpMultiplier = Math.min(1.545, 1.145 + zone / 500000);
+    let hsMultiplier = Math.pow(1 + transcendentPower, 0.2);
+    let heroDamageMultiplier = (zone > 1.2e6) ? 1000 : ((zone > 168000) ? 4.5 : 4);
+    let heroCostMultiplier = (zone > 1.2e6) ? 1.22 : 1.07;
+    let goldToDps = Math.log10(heroDamageMultiplier) / Math.log10(heroCostMultiplier) / 25;
+    let dpsToZones = Math.log10(hpMultiplier) - Math.log10(1.15) * goldToDps;
+    let chor = 0;
+    let phan = 0;
+    let pony = 0;
+
+    let chorBuff = 1 / 0.95;
+
+    while (ancientSouls > 0) {
+        if (pony < 1) {
+            ancientSouls -= ++pony;
+            continue;
+        } else if (phan < 3) {
+            phan++;
+            ancientSouls--;
+            continue;
+        }
+
+        let damageIncrease = (phan + 2) / (phan + 1);
+        let zoneIncrease = Math.log10(damageIncrease) / dpsToZones;
+        let phanBuff = Math.pow(hsMultiplier, zoneIncrease);
+
+        // Boost Phandoryss for FANT
+        if (phan < 50) {
+            phanBuff *= Math.pow(1.1, 1 / phan);
+        }
+
+        if (chor < ancientSouls && chor < 150) {
+            let chorBpAS = Math.pow(chorBuff, 1 / (chor + 1));
+            if (chorBpAS >= phanBuff) {
+                if (pony < ancientSouls) {
+                    let ponyBuff = (Math.pow(pony + 1, 2) * 10 + 1) / (Math.pow(pony, 2) * 10 + 1);
+                    let ponyBpAS = Math.pow(ponyBuff, 1 / (pony + 1));
+                    if (ponyBpAS >= chorBpAS) {
+                        ancientSouls -= ++pony;
+                        continue;
+                    }
+                }
+                ancientSouls -= ++chor;
+                continue;
+            }
+        }
+
+        if (pony < ancientSouls) {
+            let ponyBuff = (Math.pow(pony + 1, 2) * 10 + 1) / (Math.pow(pony, 2) * 10 + 1);
+            let ponyBpAS = Math.pow(ponyBuff, 1 / (pony + 1));
+            if (ponyBpAS >= phanBuff) {
+                ancientSouls -= ++pony;
+                continue;
+            }
+        }
+
+        phan++;
+        ancientSouls--;
+
+    }
+
+    return [chor, phan, pony];
+}//function nOS
+
+function getBorbFant( ancientSouls, transcendentPower ) {
+    let IEsucks = nOS( ancientSouls * 0.5, transcendentPower, 100 );
+    let chor = IEsucks[0];
+    let phan = IEsucks[1];
+    let pony = IEsucks[2];
+    let ponyBonus = Math.pow(pony, 2) * 10 + 1;
+    let chorBonus = Math.pow(1 / 0.95, chor);
+    let tp = 1 + transcendentPower;
+    let s = tp * tp;
+    let a = s + s * s + s * s * s;
+    let HSFant = 20 * ponyBonus * a;
+    let logHSFant = Math.log10(Math.max(1, HSFant));
+    logHSFant += Math.log10(chorBonus);
+    let kumaFant = Math.max(1, Math.floor(logHSFant / Math.log10(2) - 3 / Math.log(2)) - 1);
+    let kumaEffect = 8 * (1 - Math.exp(-0.025 * kumaFant));
+    let borbRequired = Math.ceil((8 / kumaEffect - 1) * 8);
+    return borbRequired;
 }
 
 function getInputs() {
-    let heroSoulsInput = $("#hero_souls").val();
-    let logHeroSouls;
-    if (heroSoulsInput.indexOf("e") > -1) {
-        let mantissa = heroSoulsInput.substr(0, heroSoulsInput.indexOf("e"));
-        let exponent = heroSoulsInput.substr(heroSoulsInput.lastIndexOf("e") + 1);
-        mantissa = parseFloat(mantissa || 0);
-        exponent = parseFloat(exponent || 0);
-        if ((isNaN(mantissa)) || isNaN(exponent)) {
-            alert("Calculation failed. logHeroSouls must be a positive number.");
-            $("#hero_souls").val(150);
-            return [0, 0, 0];
-        }
-        logHeroSouls = exponent + Math.log10(mantissa);
-        mantissa = Math.pow(10, logHeroSouls % 1).toFixed(3);
-        exponent = Math.floor(logHeroSouls);
-        $("#hero_souls").val(mantissa + "e" + exponent);
-    } else {
-        logHeroSouls = parseFloat(heroSoulsInput || 0);
-        $("#hero_souls").val(logHeroSouls);
+    $("#ancient_souls").val($("#ancient_souls").val().replace(/,/g, ''));
+    var ancientSouls = parseFloat( $("#ancient_souls").val() || 0 );
+    if( !(ancientSouls>=0) ) {
+        alert("Calculation failed. Ancient Souls must be a non-negative number.");
+        return -1;
     }
-    if (!(logHeroSouls >= 0)) {
-        alert("Calculation failed. logHeroSouls must be a positive number.");
-        $("#hero_souls").val(150);
-        return [-1, 0, 0];
+    $("#ancient_souls").val(Math.floor(ancientSouls));
+    var val = $( "#zoneOverride" ).val();
+        zoneOverride = ( val=="" ) ? 0 : parseFloat( val );
+    if( isNaN(zoneOverride) || zoneOverride<0 ) {
+        setDefaults();
+        zoneOverride = 0;
+        alert("Advanced settings were set to default values.");
     }
 
-    let xyliqilLevel = 0;
+    return [Math.floor(ancientSouls), zoneOverride];
+}
 
-    let chorLevel = parseFloat($("#chor_level").val() || 0);
-    if (!(chorLevel >= 0)) { chorLevel = 0; }
-    if (chorLevel > 150) { chorLevel = 150; }
-    chorLevel = Math.floor(chorLevel);
-    $("#chor_level").val(chorLevel.toString().replace(/\+/g,''));
-
-    let autoClickers = parseFloat($("#autoclickers").val() || 0);
-    if (!(autoClickers >= 0)) { autoClickers = 0; }
-    autoClickers = Math.floor(autoClickers);
-    $("#autoclickers").val(autoClickers.toString().replace(/\+/g,''));
+function refresh(test, ancientSouls, simulating) {
+    //IE sucks
+    if (test === undefined || test === null) test = false;
+    if (simulating === undefined || simulating === null) simulating = false;
+    if (ancientSouls === undefined || ancientSouls === null) ancientSouls = 0;
+    //Inputs
+    let zoneOverride = 0;
+    if (!test && !simulating) {
+        let IEsucks = getInputs();
+        ancientSouls = IEsucks[0];
+        zoneOverride = IEsucks[1];
+        if( ancientSouls==-1 ) return;
+        this.reserve = $("#reserveAS").is(":checked");
+    }
     
+    var transcendentPower = (25 - 23 * Math.exp(-0.0003 * ancientSouls)) / 100;
 
-    let minZones = parseInt($("#minZones").val() || 1);
-    if (!(minZones >= 1)) { minZones = 1; }
-    $("#minZones").val(minZones);
-    
-    let ascTime = parseFloat($("#ascTime").val() || 0);
-    if (!(ascTime >= 0)) { ascTime = 0; }
-    $("#ascTime").val(ascTime);
-
-    let QAStrat = $("#QAStrat").val();
-    return {
-        logHeroSouls: logHeroSouls,
-        xyliqilLevel: xyliqilLevel,
-        chorLevel: chorLevel,
-        autoClickers: autoClickers,
-        minZones: minZones,
-        ascTime: ascTime,
-        QAStrat: QAStrat
-    }
-}
-
-let e11Levels = {
-    Rose1: 724000,
-    Rose2: 1444800,
-    Rose3: 2167200,
-    Rose4: 2889600,
-    Rose5: 3612000,
-    Rose6: 4334400,
-    Sophia1: 758525,
-    Sophia2: 1480925,
-    Sophia3: 2203325,
-    Sophia4: 2925725,
-    Sophia5: 3648125,
-    Sophia6: 4370525,
-    Blanche1: 794650,
-    Blanche2: 1517050,
-    Blanche3: 2239450,
-    Blanche4: 2961850,
-    Blanche5: 3684250,
-    Blanche6: 4406650,
-    Dorothy1: 830775,
-    Dorothy2: 1553175,
-    Dorothy3: 2275575,
-    Dorothy4: 2997975,
-    Dorothy5: 3720375,
-    Dorothy6: 4442775
-};
-let e11Dps = {
-    Rose: Math.log10(8.586) + 150592,
-    Sophia: Math.log10(6.326) + 170223,
-    Blanche: Math.log10(4.661) + 189875,
-    Dorothy: Math.log10(3.434) + 209500
-};
-let e11Upgrade = 5798;
-let e11CostScale = Math.log10(1.22);
-let e11DpsScale = Math.log10(1000);
-let costThousand = Math.log10(1.07) * 1000;
-let dogcogLevel = parseFloat($("#dogcog_level").val() || 0);
-if (!(dogcogLevel >= 0)) { dogcogLevel = 0; }
-dogcogLevel = Math.floor(dogcogLevel);
-$("#dogcog_level").val(dogcogLevel.toString().replace(/\+/g,''));
-//dogcog level ** .00432138378
-let dogcog = (0.00432137378 * dogcogLevel);
-let heroCosts = {
-    Samurai: -10000,
-    Atlas: (55 + Math.log10(1.07) * 725) - dogcog,
-    Terra: (70 + costThousand) - dogcog,
-    Phthalo: (85 + costThousand) - dogcog,
-    Orntchya: (100 + costThousand) - dogcog,
-    Lilin: (115 + costThousand) - dogcog,
-    Cadmia: (130 + costThousand) - dogcog,
-    Alabaster: (145 + costThousand) - dogcog,
-    Astrea: (160 + costThousand) - dogcog,
-    Chiron: (175 + costThousand) - dogcog,
-    Moloch: (190 + costThousand) - dogcog,
-    BomberMax: (205 + costThousand) - dogcog,
-    Gog: (220 + costThousand) - dogcog,
-    Wepwawet: (235 + costThousand) - dogcog,
-    BettyClicker: (235 + costThousand) * 1.5 - dogcog,
-    KingMidas: (235 + costThousand) * 2 - dogcog,
-    Wepwawet2: (235 + costThousand) * 5 - dogcog,
-    Tsuchi0: 500 - dogcog,
-    Tsuchi1: 544.1112 - dogcog,
-    Tsuchi2: 588.1324 - dogcog,
-    Skogur0: 1000 - dogcog,
-    Skogur1: 1073.2691 - dogcog,
-    Skogur2: 1146.7753 - dogcog,
-    Skogur3: 1293.6432 - dogcog,
-    Skogur4: 1587.4427 - dogcog,
-    Moeru0: 2000 - dogcog,
-    Moeru1: 2117.3204 - dogcog,
-    Moeru2: 2235.1098 - dogcog,
-    Moeru3: 2470.1291 - dogcog,
-    Moeru4: 2940.1784 - dogcog,
-    Zilar0: 4000 - dogcog,
-    Zilar1: 4176.1876 - dogcog,
-    Zilar2: 4352.3766 - dogcog,
-    Zilar3: 4705.1518 - dogcog,
-    Zilar4: 5410.2465 - dogcog,
-    Madzi0: 8000 - dogcog,
-    Madzi1: 8220.2233 - dogcog,
-    Madzi2: 8440.5336 - dogcog,
-    Madzi3: 8881.3047 - dogcog,
-    Madzi4: 9762.9937 - dogcog,
-    Xavira0: 14000 - dogcog,
-    Xavira1: 18407.3445 - dogcog,
-    Xavira2: 19435.9321 - dogcog,
-    Xavira3: 21492.6822 - dogcog,
-    Xavira4: 22521.1845 - dogcog,
-    Xavira5: 23872.8316 - dogcog,
-    Cadu0: 25500 - dogcog,
-    Ceus1: 27204.1697 - dogcog,
-    Cadu1: 28908.3081 - dogcog,
-    Ceus2: 30789.1123 - dogcog,
-    Cadu2: 32845.8223 - dogcog,
-    Ceus3: 35079.1208 - dogcog,
-    Cadu3: 37473.7244 - dogcog,
-    Ceus4: 40044.8721 - dogcog,
-    Cadu4: 42777.4284 - dogcog,
-    Maw0: 45500 - dogcog,
-    Maw1: 48761.3714 - dogcog,
-    Maw2: 52184.6026 - dogcog,
-    Maw3: 55784.1962 - dogcog,
-    Maw4: 59545.2608 - dogcog,
-    Maw5: 63497.3423 - dogcog,
-    Maw6: 67611.1833 - dogcog,
-    Yachiyl1: 76627.8233 - dogcog,
-    Yachiyl2: 81432.1456 - dogcog,
-    Yachiyl3: 86398.1051 - dogcog,
-    Yachiyl4: 91540.1523 - dogcog,
-    Yachiyl5: 96858.4431 - dogcog,
-    Yachiyl6: 102338.5261 - dogcog,
-    Yachiyl7: 107995.1253 - dogcog,
-};
-let heroCosts1 = {
-    Samurai: 5 - dogcog,
-    Atlas: 55 - dogcog,
-    Terra: 70 - dogcog,
-    Phthalo: 85 - dogcog,
-    Orntchya: 100 - dogcog,
-    Lilin: 115 - dogcog,
-    Cadmia: 130 - dogcog,
-    Alabaster: 145 - dogcog,
-    Astrea: 160 - dogcog,
-    Chiron: 175 - dogcog,
-    Moloch: 190 - dogcog,
-    BomberMax: 205 - dogcog,
-    Gog: 220 - dogcog,
-    Wepwawet: 235 - dogcog,
-    BettyClicker: Math.log10(20000) - dogcog,
-    KingMidas: Math.log10(4e12) - dogcog,
-    Tsuchi: 500 - dogcog,
-    Skogur: 1000 - dogcog,
-    Moeru: 2000 - dogcog,
-    Zilar: 4000 - dogcog,
-    Madzi: 8000 - dogcog,
-    Xavira: 14000 - dogcog,
-    Cadu: 25500 - dogcog,
-    Ceus: 25500 - dogcog,
-    Maw: 45500 - dogcog,
-    Yachiyl: 72000 - dogcog,
-    Rose: 108000 - dogcog,
-    Sophia: 121250 - dogcog,
-    Blanche: 134500 - dogcog,
-    Dorothy: 147750 - dogcog
-};
-let heroBaseDps = {
-    Samurai: 5.2858,
-    Atlas: 47.4251,
-    Terra: 60.2924,
-    Phthalo: 73.1598,
-    Orntchya: 86.0271,
-    Lilin: 98.8944,
-    Cadmia: 111.7618,
-    Alabaster: 124.6290,
-    Astrea: 137.4965,
-    Chiron: 149.4965,
-    Moloch: 163.2312,
-    BomberMax: 175.9437,
-    Gog: 188.9871,
-    Wepwawet: 201.7295,
-    BettyClicker: 11.0038,
-    KingMidas: 18.7950,
-    Wepwawet2: 201.7295,
-    Tsuchi0: 425.182,
-    Tuschi1: 426.3953,
-    Tuschi2: 427.7703,
-    Skogur0: 846.1341,
-    Skogur1: 847.1498,
-    Skogur2: 848.1553,
-    Skogur3: 849.1573,
-    Skogur4: 850.2298,
-    Moeru0: 1678.9985,
-    Moeru1: 1680.1096,
-    Moeru2: 1681.2059,
-    Moeru3: 1682.3374,
-    Moeru4: 1682.4349,
-    Zilar0: 3333.7283,
-    Zilar1: 3335.7387,
-    Zilar2: 3335.7588,
-    Zilar3: 3335.7698,
-    Zilar4: 3335.8496,
-    Madzi0: 6630.5366,
-    Madzi1: 6631.3784,
-    Madzi2: 6632.3824,
-    Madzi3: 6633.5065,
-    Madzi4: 6634.8346,
-    Xavira0: 11683.4585,
-    Xavira1: 12306.4585,
-    Xavira2: 12954.4585,
-    Xavira3: 13627.4585,
-    Xavira4: 14475.4585,
-    Xavira5: 15348.4585,
-    Cadu0: 26446.3258,
-    Ceus1: 27444.1931,
-    Cadu1: 28544.3258,
-    Ceus2: 29742.1931,
-    Cadu2: 31042.3258,
-    Ceus3: 32440.1931,
-    Cadu3: 33940.3258,
-    Ceus4: 35538.1931,
-    Cadu4: 37238.3258,
-    Maw0: 61732.0604,
-    Maw1: 63730.0604,
-    Maw2: 65828.0604,
-    Maw3: 68026.0604,
-    Maw4: 70324.0604,
-    Maw5: 72722.0604,
-    Maw6: 75220.0604,
-    Yachiyl1: 101491.9278,
-    Yachiyl2: 104389.9278,
-    Yachiyl3: 107387.9278,
-    Yachiyl4: 110485.9278,
-    Yachiyl5: 113683.9278,
-    Yachiyl6: 116981.9278,
-    Yachiyl7: 116982.0034
-};
-
-// Populate e11 heroes
-let newHeroes = ["Rose", "Sophia", "Blanche", "Dorothy"];
-for (let l = 0; l < 7; l++) {
-    for (let q = 0; q < 4; q++) {
-        let hero = newHeroes[q];
-        let heroCost = heroCosts1[hero];
-        let heroDps = e11Dps[hero];
-        let heroUpgrade = hero + l;
-        let level = e11Levels[heroUpgrade] || 0;
-        heroCosts[heroUpgrade] = heroCost + level * e11CostScale;
-        heroBaseDps[heroUpgrade] = heroDps + e11Upgrade * l + 1.861426728;
-    }
-}
-// heroCosts["Rose0"] += Math.log10(1.22) * 9700;
-
-function findBestHero(logGold) {
-    let bestHero;
-    let heroType = "old";
-    for (let s in heroCosts) {
-        if (heroCosts.hasOwnProperty(s)) {
-            if (heroCosts[s] <= logGold) {
-                bestHero = s;
-                if (s === "Xavira0") { heroType = "e10"; }
-                if (s === "Rose0") { heroType = "e11"; }
-            }
-        }
-    }
-    return [bestHero, heroType];
-}
-
-function findNextHero(currentHero) {
-    if (currentHero === "Dorothy5") return false;
-    let logGold = heroCosts[currentHero];
-    let nextHero;
-    let heroType = "old";
-    for (let s in heroCosts) {
-        if (heroCosts.hasOwnProperty(s)) {
-            if (s === "Xavira0") { heroType = "e10"; }
-            if (s === "Rose0") { heroType = "e11"; }
-            if (heroCosts[s] > logGold) {
-                // if (s !== "Dorothy1" && s !== "Dorothy2" && s !== "dorothy4") {
-                    nextHero = s;
-                    break;
-                // }
-            }
-        }
-    }
-    return [nextHero, heroType];
-}
-
-function findHeroDps(bestHero, heroLevel, heroType, gilds) {
-    let baseDps = heroBaseDps[bestHero] + Math.log10(heroLevel);
-    let damageMultiplier;
-    if (heroType === "e11") {
-        damageMultiplier = 1000;
-    } else if (heroType === "e10") {
-        damageMultiplier = 4.5;
+    // Figure out goals for this transcendence
+    this.newHze = Math.floor(zoneOverride||0);
+    borbTarget = 0;
+    if(this.newHze==0){
+    if (ancientSouls == 0) {
+        this.newHze = 300;
+    } else if (ancientSouls < 100) {
+        let a = ancientSouls + 42;
+        this.newHze = (a / 5 - 6) * 51.8 * Math.log(1.25) / Math.log(1 + transcendentPower);
+    } else if (ancientSouls < 10500) {
+        this.newHze = (1 - Math.exp(-ancientSouls / 3900)) * 200000 + 4800;
+    } else if (ancientSouls < 21000) {
+        let x = 8000 + (10500 - ancientSouls) / 10500 * 4000;
+        this.newHze = ancientSouls*10.32 + x*12;
     } else {
-        damageMultiplier = 4;
-    }
-    let dpsMultiplier25 = Math.log10(damageMultiplier) * Math.floor(Math.max(heroLevel - 175, 0) / 25);
-    let dpsMultiplier1000 = (heroType === "e11")
-        ? 0
-        : Math.log10(10 / damageMultiplier) * Math.min(Math.floor(heroLevel / 1000), 8);
-    let gildDps = Math.log10(gilds);
-    return baseDps + dpsMultiplier25 + dpsMultiplier1000 + gildDps;
-}
-
-let cacheHp140 = Math.log10(1.55) * 139 + 1;
-let hp141 = 1 + Math.log10(1.145) + cacheHp140;
-let hp500 = 1 + Math.log10(1.55) * 139 + Math.log10(1.145) * 360;
-let hp200k = Math.log10(1.24) + 25409;
-
-function findHighestZone(totalDps) {
-    if (totalDps === Infinity) return 2.147e9;
-    if (totalDps < hp141) {
-        return 130;
-    } else if (totalDps <= hp500) {
-        return 500;
-    } else if (totalDps < hp200k) {
-        let logHealth = hp500;
-        this.zone = 199999;
-        for (let z = 501; z < 200000; z++) {
-            logHealth += Math.log10(1.145 + 0.001 * Math.floor((z - 1) / 500));
-            if (logHealth >= totalDps) {
-                this.zone = z;
-                break;
-            }
-        }
-    } else {
-        this.zone = Math.min((totalDps - hp200k) / Math.log10(1.545) + 200000, 2.147e9);
-    }
-    let bossMultiplier = Math.floor(this.zone / 500) * 0.4 + 5;
-    this.zone -= Math.log(bossMultiplier) / Math.log(1.545);
-    return Math.floor(this.zone);
-}
-
-function findHighestIdleZone(logHeroSouls, heroDps, xyliqilLevel, autoClickers) {
-    let ancientDps = logHeroSouls * 2.4 + Math.log10(1.5) * 2 * xyliqilLevel -1.4457374595558059145523937994475;
-    let totalDps = heroDps + ancientDps;
-    if (autoClickers <= 2e9) {
-        totalDps += Math.log10(1.5) * autoClickers;
-    }
-    return findHighestZone(totalDps);
-}
-
-function findHighestActiveZone(logHeroSouls, heroDps) {
-    let ancientDps = logHeroSouls * 2.9 -1.8159188043029278373206243377068;
-    let totalDps = heroDps + ancientDps;
-    return findHighestZone(totalDps);
-}
-
-function getMonsterGold(level, logHeroSouls) {
-    let ancientGold = logHeroSouls * 1.5 -1.1105440342413657683046916147778;
-    if (level < 140) {
-        return Math.log10(1.6) * (level - 1) + ancientGold - Math.log10(15);
-    } else {
-        return Math.log10(1.15) * (level - 140) + Math.log10(1.6) * 139 + ancientGold - Math.log10(15);
-    }
-}
-
-function getHeroLevel(logGold, bestHero, heroType) {
-    let nameShort = bestHero.substring(0, bestHero.length - 1);
-    let baseCost = heroCosts1[nameShort]
-        ? heroCosts1[nameShort]
-        : heroCosts1[bestHero];
-    let costMultiplier = (heroType === "e11" ) ? 1.22 : 1.07;
-    let heroLevel = Math.floor((logGold - baseCost) / Math.log10(costMultiplier));
-    heroLevel = Math.max(1, heroLevel);
-    return heroLevel;
-}
-
-function getZoneRequired(currentHero, useActive, logCps, logXylBonus) {
-    let goldRequired = heroCosts[currentHero] - Math.log10(1.15 / 0.15)
-        - (useActive ? logCps : logXylBonus)
-        - (userData.logHeroSouls * 1.5 -1.1105440342413657683046916147778)
-        - Math.log10(1.6 / 1.15) * 139;
-    let zoneRequired = Math.floor(goldRequired / Math.log10(1.15));
-    return zoneRequired;
-}
-
-function getNextTL(startingZone) {
-    let zonesGained = userData.highestZone - startingZone;
-    let duration;
-    let rubyCost;
-    if (zonesGained <= userData.minZones) {
-        return [false, zonesGained];
-    }
-    let needed = Infinity;
-    if (userData.endZone) {
-        if (startingZone > userData.endZone) {
-            return [false, zonesGained];
+        let nonBorb = ancientSouls > 433000 ? 500 : 1000;
+        let b = this.spendAS(1, ancientSouls - nonBorb);
+        borbTarget = b * 5000;
+        if (b > 1026) {
+            this.newHze = 5.46e6;
+        } else if (borbToZone[b]) {
+            this.newHze = Math.max(borbTarget + 500, borbToZone[b]);
         } else {
-            needed = userData.endZone - startingZone;
+            this.newHze = borbTarget + 500;
         }
-    }
-    if ((zonesGained >= 360000) && (userData.minZones <= 756000) && (needed >= 252000)) {
-        duration = "168h";
-        zonesGained = Math.min(756000, zonesGained);
-        rubyCost = 60;
-    } else if ((zonesGained >= 144000) && (userData.minZones <= 216000) && (needed >= 108000)) {
-        duration = "48h";
-        zonesGained = Math.min(216000, zonesGained);
-        rubyCost = 35;
-    } else if ((zonesGained >= 72000) && (userData.minZones <= 108000) && (needed >= 36000)) {
-        duration = "24h";
-        zonesGained = Math.min(108000, zonesGained);
-        rubyCost = 25;
-    } else if (userData.minZones <= 36000) {
-        duration = "8h";
-        zonesGained = Math.min(36000, zonesGained);
-        rubyCost = 15;
+    }}
+
+    this.newHze = Math.floor(this.newHze);
+    let newLogHeroSouls = Math.log10(1 + transcendentPower) * this.newHze / 5 + 6;
+
+    // Ancient effects
+    let ancientLevels = Math.floor(newLogHeroSouls / Math.log10(2) - 3 / Math.log10(2)) - 1;
+    let kuma = -8 * (1 - Math.exp(-0.025 * ancientLevels));
+    let atman = 75 * (1 - Math.exp(-0.013 * ancientLevels));
+    let bubos = -5 * (1 - Math.exp(-0.002 * ancientLevels));
+    let chronos = 30 * (1 - Math.exp(-0.01 * ancientLevels));
+    let dora = 9900 * (1 - Math.exp(-0.002 * ancientLevels));
+
+    // Unbuffed Stats
+    let nerfs = Math.floor(this.newHze / 500);
+    let unbuffedMonstersPerZone = Math.round10(10 + nerfs * 0.1, -2);
+    let unbuffedTreasureChestChance = 1 - 0.99999999 * (1 - Math.exp(-0.006 * nerfs));
+    let unbuffedBossHealth = 10 + nerfs * 0.4;
+    let unbuffedBossTimer = 30 - nerfs * 2;
+    let unbuffedPrimalBossChance = 25 - nerfs * 2;
+
+    // Outsider Caps
+    let borbCap = borbTarget
+        ? Math.ceil((borbTarget - 500) / 5000)
+        : ancientSouls >= 10500
+            ? Math.ceil((this.newHze - 500) / 5000)
+            : Math.max(0, Math.ceil(((unbuffedMonstersPerZone - 2.1) / - kuma - 1) / 0.125));
+    let rhageistCap = Math.ceil(((100 - unbuffedPrimalBossChance) / atman - 1) / 0.25);
+    let kariquaCap = Math.ceil(((unbuffedBossHealth - 5) / -bubos - 1) / 0.5);
+    let orphalasCap = Math.ceil(((100 - unbuffedPrimalBossChance) / chronos - 1) / 0.25);
+    let senakhanCap = Math.max(1, Math.ceil((100 / unbuffedTreasureChestChance) / (dora / 100 + 1) - 1));
+
+    // Outsider Ratios
+    let rhageistRatio;
+    let kariquaRatio;
+    let orphalasRatio;
+    let senakhanRatio;
+
+    if (ancientSouls < 100) {
+        let ratioChange = ancientSouls / 100;
+        rhageistRatio = 0.2*ratioChange;
+        kariquaRatio = 0.01*ratioChange;
+        orphalasRatio = 0.1*ratioChange;
+        senakhanRatio = 0.05*ratioChange;
+    } else if (ancientSouls < 21000) {
+        rhageistRatio = 0.2;
+        kariquaRatio = 0.01;
+        orphalasRatio = .2;
+        senakhanRatio = 0.05;
     } else {
-        return [false, zonesGained];
-    }
-    userData.highestZone = startingZone + zonesGained;
-
-    return [duration, zonesGained, rubyCost];
-}
-
-function getSoftCap(options, startingZone, logCps, logXylBonus, gilds) {
-    userData.timelapseZoneMax = startingZone;
-    let activeAdvantage = userData.logHeroSouls * 0.5 + logCps -0.3701813447471219227682305382593 - Math.log10(1.5) * 3.3895 * userData.xyliqilLevel;
-    if (userData.autoClickers <= 2e9) {
-        activeAdvantage -= Math.log10(1.5) * userData.autoClickers;
-    } else {
-        if (!options.test)
-            console.log("Too many ACs, Nogardnit's scaling is broken past 2e9 ACs.");
-    }
-    let useActive = activeAdvantage > 0;
-    if (!useActive && !options.test) { console.log("Idle is better than active."); }
-    
-    let goldRequired = false;
-    do {
-        let logGold = getMonsterGold(startingZone, userData.logHeroSouls);
-        logGold += Math.log10(1.15 / 0.15);
-        logGold += useActive ? logCps : logXylBonus;
-        let IEsucks = findBestHero(logGold);
-        let bestHero = IEsucks[0];
-        let heroType = IEsucks[1];
-        let heroLevel = getHeroLevel(logGold, bestHero, heroType);
-        let heroDps = findHeroDps(bestHero, heroLevel, heroType, gilds);
-        let combo = Math.log10(Math.max((startingZone - userData.timelapseZoneMax) / 2.25, 1)) + logCps;
-        combo = Math.min(combo, 307);
-        userData.highestZone = useActive
-            ? findHighestActiveZone(userData.logHeroSouls, heroDps + combo + logCps)
-            : findHighestIdleZone(userData.logHeroSouls, heroDps, userData.xyliqilLevel, userData.autoClickers);
-        userData.highestZone = userData.highestZone - userData.highestZone % 5 + 4;
-
-        zonesGained = userData.highestZone - startingZone;
-        if (zonesGained <= 10) {
-            return [startingZone, bestHero, heroLevel];
-        } else {
-            startingZone = userData.highestZone;
-        }
-    } while (zonesGained > 10);
-}
-
-function formatTime(durationSeconds) {
-    let hours = Math.floor(durationSeconds / 3600);
-    let duration;
-    if (hours < 72) {
-        let minutes = Math.floor((durationSeconds - (hours * 3600)) / 60);
-        let seconds = durationSeconds - hours * 3600 - minutes * 60;
-        if (hours   < 10) { hours   = "0" + hours; }
-        if (minutes < 10) { minutes = "0" + minutes; }
-        if (seconds < 10) { seconds = "0" + seconds; }
-        duration = hours + ":" + minutes + ":" + seconds;
-    } else {
-        let dl = durationSeconds;
-        let years = Math.floor(dl / 31557600);
-        dl -= years * 31557600;
-        let days = Math.floor(dl / 86400);
-        dl -= days * 86400;
-        hours = dl / 3600;
-        duration = (years > 0 ? years.toLocaleString() + "y " : "") + days + "d " + hours.toFixed(2) + "h";
-    }
-    return duration;
-}
-
-function refresh(options) {
-    if (options === undefined || options === null) options = {};
-    if (options.test) {
-        userData = Object.assign({}, options);
-    } else {
-        console.clear();
-        userData = getInputs();
-    }
-
-    if (userData.logHeroSouls < 0) { return false; }
-    
-    if (options.data) {
-        userData.data = options.data;
-        userData.heroSoulsInput = options.heroSoulsInput;
-        userData.useOnAscend = options.useOnAscend;
-        let kumaLevel = userData.data.ancients.ancients[21].level;
-        let kumaEffect = 8 * (1 - Math.exp(-0.025 * kumaLevel));
-        let borbLevel = userData.data.outsiders.outsiders[6].level;
-        let mpzReduction = kumaEffect * (1 + borbLevel / 8);
-        userData.borbLimit = Math.floor((mpzReduction - 8) * 10) * 500;
+        rhageistRatio = 0;
+        kariquaRatio = 0;
+        orphalasRatio = 0;
+        senakhanRatio = 0;
     }
     
-    if (!options.test) console.log(userData);
-    
-    
-    let logCps = Math.max(1 + Math.log10(userData.autoClickers), 1 + (userData.autoClickers - 1) * Math.log10(1.5));
-    if (logCps >= 307) {
-        logCps = 2;
-        if (!options.test)
-            console.log("Too many ACs, assign a few on the monster only or progress will be broken.");
+    if(!$("#levelOrphalas").is(":checked")) {
+        orphalasRatio = 0;
     }
-    let logXylBonus = Math.log10(1.5) * userData.xyliqilLevel;
-    
-    let activeAdvantage = userData.logHeroSouls * 0.5 + logCps -0.3701813447471219227682305382593 - Math.log10(1.5) * 3.3895 * userData.xyliqilLevel;
-    if (userData.autoClickers <= 2e9) {
-        activeAdvantage -= Math.log10(1.5) * userData.autoClickers;
-    } else {
-        if (!options.test)
-            console.log("Too many ACs, Nogardnit's scaling is broken past 2e9 ACs.");
-    }
-    let useActive = activeAdvantage > 0;
-    if (!useActive && !options.test) { console.log("Idle is better than active."); }
 
-    let previousHZT = (userData.logHeroSouls - 5) / Math.log10(1.25) * 5;
-    let gilds = Math.max(1, Math.floor(previousHZT / 10) - 9);
-    let baseHeroSouls = userData.logHeroSouls;
-    userData.logHeroSouls += Math.log10(1 / 0.95) * userData.chorLevel - 2;
+    // Outsider Leveling
+    this.remainingAncientSouls = ancientSouls;
+    
+    let borbFantR = getBorbFant(ancientSouls, transcendentPower);
+    let borbFant = ancientSouls <= 2000
+        ? Math.min(this.spendAS(0.35, this.remainingAncientSouls), borbFantR)
+        : 0;
+    let borbHze = this.remainingAncientSouls >= 21000
+        ? borbCap
+        : Math.min(this.spendAS(ancientSouls >= 50 ? 0.99 : 0.5, this.remainingAncientSouls), borbCap + 1);
+    let borbLevel = Math.max(borbFant, borbHze);
 
-    let startingZone = 40;
-    let timelapses = [];
-    let zonesGained = 0;
-    let rubyCost = 0;
-    let currentHero;
-    let revivedTLs = false;
-    let logGold;
-    
-    if (userData.ascTime) {
-        let endZone = getSoftCap(options, startingZone, logCps, logXylBonus, gilds)[0];
-        let equivalentZones = userData.ascTime * 8050;
-        if (userData.borbLimit && endZone > userData.borbLimit) {
-            let remainder = endZone % 500;
-            let mpz = Math.floor((endZone - userData.borbLimit) / 500) / 10 + 2;
-            let monsters = (mpz - 2) * remainder / 1.083 + 1;
-            if (monsters <= equivalentZones) {
-                endZone -= remainder;
-                equivalentZones -= monsters;
-            } else {
-                endZone -= (equivalentZones / monsters) * remainder;
-                equivalentZones = 0;
-            }
-            mpz -= 0.1;
-            while (mpz > 2) {
-                let monsters = (mpz - 2) * 500 / 1.083 + 500;
-                if (monsters <= equivalentZones) {
-                    endZone -= 500;
-                    equivalentZones -= monsters;
-                } else {
-                    endZone -= (equivalentZones / monsters) * 500;
-                    equivalentZones = 0;
-                    break;
-                }
-                mpz -= 0.1;
-            }
-        }
-        endZone -= equivalentZones;
-        userData.endZone = Math.max(1, Math.floor(endZone));
+    if (this.getCostFromLevel(borbLevel) > (this.remainingAncientSouls - 5)) {
+        borbLevel = this.spendAS(1, this.remainingAncientSouls - 5);
     }
-    
-    do {
-        if (!revivedTLs) {
-            logGold = getMonsterGold(startingZone, userData.logHeroSouls)
-            let idleGoldExtra = startingZone > 140
-                ? Math.log10(1.15 / 0.15)
-                : Math.log10(1.6 / 0.6);
-            idleGoldExtra += logXylBonus;
-            let activeGoldExtra = logCps + 1;
-            logGold += Math.max(idleGoldExtra, activeGoldExtra);
-        }
-        let IEsucks = findBestHero(logGold);
-        let bestHero = IEsucks[0];
-        let heroType = IEsucks[1];
-        let heroLevel = getHeroLevel(logGold, bestHero, heroType);
-        let heroDps = findHeroDps(bestHero, heroLevel, heroType, gilds);
-        userData.highestZone = findHighestIdleZone(userData.logHeroSouls, heroDps, userData.xyliqilLevel, userData.autoClickers);
-        userData.highestZone = userData.highestZone - userData.highestZone % 5 + 4;
-        
-        if (!revivedTLs) {
-            currentHero = bestHero;
-        }
-        
-        IEsucks = getNextTL(startingZone);
-        if (IEsucks[0]) {
-            if (bestHero === "Wepwawet2") { bestHero = "Wepwawet"; }
-            zonesGained = IEsucks[1];
-            timelapses.push({
-                duration: IEsucks[0],
-                bestHero: bestHero,
-                heroLevel: heroLevel,
-                zone: userData.highestZone,
-                zoneDisplay: userData.highestZone.toLocaleString() + " (+" + IEsucks[1].toLocaleString() + ")",
-            });
-            rubyCost += IEsucks[2];
-            startingZone = userData.highestZone;
-            revivedTLs = false;
-        } else {
-            if (revivedTLs) {
-                timelapses.pop();
-                startingZone = timelapses[0] && timelapses[timelapses.length-1].zone || 40;;
-                break;
-            } else {
-                if (userData.endZone) { break; }
-                let IEsucks = findNextHero(bestHero);
-                if (!IEsucks) { break; }
-                let nextHero = IEsucks[0];
-                zoneRequired = getZoneRequired(nextHero, useActive, logCps, logXylBonus);
-                logGold = heroCosts[nextHero];
-                if (zoneRequired >= userData.borbLimit) { break; }
-                let softCap = getSoftCap(options, startingZone, logCps, logXylBonus, gilds)[0];
-                if (zoneRequired >= softCap) { break; }
-                revivedTLs = true;
-                let zonesGained = zoneRequired - startingZone;
-                if (zonesGained <= 0) { break; }
-                let durationSeconds = Math.ceil(zonesGained / 8050 * 3600);
-                let duration = formatTime(durationSeconds);
-                timelapses.push({
-                    duration: duration + " (wait)",
-                    bestHero: bestHero,
-                    heroLevel: heroLevel,
-                    zone: zoneRequired,
-                    zoneDisplay: zoneRequired.toLocaleString() + " (+" + zonesGained.toLocaleString() + ")",
-                });
-                startingZone = zoneRequired;
-            }
-        }
-        if (userData.borbLimit && startingZone > (userData.borbLimit + 499)) { break; }
-    } while (revivedTLs || zonesGained >= userData.minZones);
 
-    userData.timelapseZoneMax = startingZone;
+    this.remainingAncientSouls -= this.getCostFromLevel(borbLevel);
     
-    let IEsucks = getSoftCap(options, startingZone, logCps, logXylBonus, gilds);
-    let softCap = IEsucks[0];
-    let bestHero = IEsucks[1];
-    let heroLevel = IEsucks[2];
-    
-    let goldRequired = false;
-    if (bestHero !== currentHero) {
-        currentHero = bestHero;
-        goldRequired = true;
-    }
-    
-    let durationSeconds;
-    if (userData.borbLimit && userData.highestZone > (userData.borbLimit + 499)) {
-        if (userData.borbLimit > 0) {
-            let flatZones = userData.borbLimit - userData.timelapseZoneMax;
-            let n = userData.highestZone - userData.borbLimit;
-            let highZones = n + (n * n) / 10830;
-            let zonesTraveled = flatZones + highZones;
-            durationSeconds = Math.ceil(zonesTraveled / 8050 * 3600);
-        } else {
-            let a = highestZone - userData.borbLimit;
-            let zonesA = a + (a * a) * 10830;
-            let b = -userData.borbLimit;
-            let zonesB = b + (b * b) * 10830;
-            let zonesTraveled = zonesA - zonesB;
-            durationSeconds = Math.ceil(zonesTraveled / 8050 * 3600);
-        }
-    } else {
-        let activeZonesGained = softCap - userData.timelapseZoneMax;
-        durationSeconds = Math.ceil(activeZonesGained / 8050 * 3600);
-    }
-    let duration = formatTime(durationSeconds);
-    if (bestHero === "Wepwawet2") { bestHero = "Wepwawet"; }
-    timelapses.push({
-        duration: duration,
-        bestHero: bestHero,
-        heroLevel: heroLevel,
-        zone: userData.highestZone,
-        zoneDisplay: userData.highestZone.toLocaleString() + " (max zone)",
-    });
+    // Xyl is cool now
+    let xyliqilLevel = this.getCostFromLevel(orphalasCap) > (this.remainingAncientSouls * orphalasRatio)
+    ? this.spendAS(orphalasRatio, this.remainingAncientSouls)
+    : orphalasCap;
+    this.remainingAncientSouls -= this.getCostFromLevel(xyliqilLevel);
 
-    // Test log
-    if (options.test) {
+    // Remove souls if using Reserve AS
+    if (!test && this.reserve) {
+        var unspentAncientSouls = Math.floor( this.remainingAncientSouls*0.1 )
+        this.remainingAncientSouls -= unspentAncientSouls;
+    }
+
+    // Super outsiders
+    let rhageistLevel = this.getCostFromLevel(rhageistCap) > (this.remainingAncientSouls * rhageistRatio)
+        ? this.spendAS(rhageistRatio, this.remainingAncientSouls)
+        : rhageistCap;
+    let kariquaLevel = this.getCostFromLevel(kariquaCap) > (this.remainingAncientSouls * kariquaRatio)
+        ? this.spendAS(kariquaRatio, this.remainingAncientSouls)
+        : kariquaCap;
+    // Orph sucks
+    let orphalasLevel = 0;
+    let senakhanLevel = this.getCostFromLevel(senakhanCap) > (this.remainingAncientSouls * senakhanRatio)
+        ? this.spendAS(senakhanRatio, this.remainingAncientSouls)
+        : senakhanCap;
+
+    this.remainingAncientSouls -= this.getCostFromLevel(rhageistLevel);
+    this.remainingAncientSouls -= this.getCostFromLevel(kariquaLevel);
+    this.remainingAncientSouls -= this.getCostFromLevel(orphalasLevel);
+    this.remainingAncientSouls -= this.getCostFromLevel(senakhanLevel);
+
+    // Chor, Phan, and Pony
+    let IEsucks = this.nOS(this.remainingAncientSouls, transcendentPower, this.newHze);
+    let chorLevel = IEsucks[0];
+    let phanLevel = IEsucks[1];
+    let ponyLevel = IEsucks[2];
+
+    this.remainingAncientSouls -= this.getCostFromLevel(chorLevel);
+    this.remainingAncientSouls -= phanLevel;
+    this.remainingAncientSouls -= this.getCostFromLevel(ponyLevel);
+
+    // End of transcension estimates
+    let ponyBonus = Math.pow(ponyLevel, 2) * 10;
+    let series = 1 / (1 - 1 / (1 + transcendentPower));
+    let buffedPrimalBossChance = Math.max(5, unbuffedPrimalBossChance + atman * (1 + rhageistLevel * 0.25));
+    let pbcm = Math.min(buffedPrimalBossChance, 100) / 100;
+
+    newLogHeroSouls = Math.log10(1 + transcendentPower) * (this.newHze - 100) / 5 + Math.log10(ponyBonus + 1) + Math.log10(20 * series * pbcm);
+    this.newAncientSouls = Math.max(ancientSouls, Math.floor(newLogHeroSouls * 5));
+    this.ancientSoulsDiff = this.newAncientSouls - ancientSouls;
+    this.newTranscendentPower = (25 - 23 * Math.exp(-0.0003 * this.newAncientSouls)) / 100;
+
+    //test log
+    var unspent = this.remainingAncientSouls + (unspentAncientSouls||0);
+    if (test) {
         return (JSON.stringify({
-            logHeroSouls: baseHeroSouls,
-            xyliqilLevel: userData.xyliqilLevel,
-            chorLevel: userData.chorLevel,
-            autoClickers: userData.autoClickers,
-            rubyCost: rubyCost,
-            timelapses: timelapses,
+            ancientSouls: ancientSouls,
+            expectedLevels: [xyliqilLevel,chorLevel,phanLevel,ponyLevel,borbLevel,rhageistLevel,kariquaLevel,orphalasLevel,senakhanLevel],
+            expectedRemaining: unspent,
+            newHze: this.newHze,
+            newLogHeroSouls: newLogHeroSouls,
+            newAncientSouls: this.newAncientSouls,
+            newTranscendentPower: this.newTranscendentPower*100
         }));
     }
+    
+    //transcensionSimulator
+    var buffedMPZ = unbuffedMonstersPerZone + kuma*( 1 + borbLevel/8 );
+    if (simulating) return [ancientSouls, borbLevel, this.newHze, buffedMPZ, this.newAncientSouls];
 
-    // Display results
-    let toappend = "";
-    let t = 0;
-    if (timelapses[4] && timelapses[4].duration === "168h") {
-        for (let d = 4; d < timelapses.length; d++) {
-            if (timelapses[d].duration === "168h") {
-                t = d;
-            }
-        }
-        timelapses[t].duration += " x" + (t + 1);
-        timelapses[t].zoneDisplay = timelapses[t].zone.toLocaleString() + " (+" + (timelapses[t].zone - 40).toLocaleString() + ")";
-    }
-    for (t; t < timelapses.length; t++) {
-        let row = timelapses[t];
-        let heroLevel;
-        if (row.heroLevel !== Infinity && row.heroLevel >= 1e21) {
-            let s = row.heroLevel.toString();
-            heroLevel = s.substr(0,5) + "e" + s.substr(s.indexOf("+"));
+    // Display the results
+    $("#TP").html("TP: " + tpDisplay(ancientSouls));
+    //End of Transcension
+    $("#predictedHZE").html("Highest Zone: " + this.newHze.toLocaleString() );
+    $("#predictedHS").html("logHS: " + newLogHeroSouls.toFixed(2).toLocaleString() );
+    $("#predictedAS").html("AncientSouls: " + this.newAncientSouls.toLocaleString() + " (+" + this.ancientSoulsDiff.toLocaleString() + ")");
+    $("#predictedTP").html("TP: " + tpDisplay(this.newAncientSouls));
+    $("#predictedAncients").html("Ancient Levels: " + ancientLevels.toLocaleString() );
+    $("#kuma").html( kuma.toFixed(2) + " monsters per zone" );
+    $("#atman").html( atman.toFixed(2) + "% chance of primal" );
+    $("#bubos").html( bubos.toFixed(2) + " boss life" );
+    $("#chronos").html( chronos.toFixed(2) + "s boss fight timer" );
+    $("#dora").html( dora.toFixed(2) + "% treasure chests" );
+    //Unbuffed Stats
+    $("#unbuffedMPZ").html( "Monsters per Zone: " + unbuffedMonstersPerZone.toFixed(2) );
+    $("#unbuffedTCC").html( "Treasure Chests: " + unbuffedTreasureChestChance.toFixed(6) + "x" );
+    $("#unbuffedBossHP").html( "Boss Health: " + unbuffedBossHealth.toFixed(1) + "x" );
+    $("#unbuffedTimer").html( "Boss Timer: " + unbuffedBossTimer + "s" );
+    $("#unbuffedPBC").html( "Primal Chance: " + unbuffedPrimalBossChance + "%" );
+    //Buffed Stats
+    var buffedTCC = Math.max( 1, ( dora*( 1 + senakhanLevel)/100 + 1 )*unbuffedTreasureChestChance );
+        buffedBossHP = Math.floor( Math.max( 5, unbuffedBossHealth + bubos*( 1 + kariquaLevel*0.5 ) ) );
+        buffedTimer = Math.max( 2, unbuffedBossTimer + chronos*( 1 + orphalasLevel*0.75 ) );
+        buffedPBC = Math.max( 5, unbuffedPrimalBossChance + atman*( 1 + rhageistLevel*0.25 ) );
+    $("#buffedMPZ").html( "Monsters per Zone: " + buffedMPZ.toFixed(2) + (buffedMPZ<2?" (2)":"") );
+    $("#buffedTCC").html( "Treasure Chests: " + buffedTCC.toFixed() + "%" );
+    $("#buffedBossHP").html( "Boss Health: " + buffedBossHP.toFixed() + "x" );
+    $("#buffedTimer").html( "Boss Timer: " + buffedTimer.toFixed() + "s" );
+    $("#buffedPBC").html( "Primal Chance: " + buffedPBC.toFixed() + "%" );
+    //Zone Breakpoints
+    $("#HighMpz").html( "2.1 monsters per zone: " + ( -39500 - Math.floor( kuma*( 1 + borbLevel/8 )*10 )*500 ).toLocaleString() );
+    $("#5PBC").html( "5% primal chance: " + ( 5500 + Math.floor( atman*( 1 + rhageistLevel/4 )/2)*500 ).toLocaleString() );
+    $("#90BHP").html( "90% boss health: " + ( Math.ceil( ( bubos*( 1 + kariquaLevel/2 )*-10 - 10 )/0.4 )*500 ).toLocaleString() );
+    $("#2sTimer").html( "2s boss timer: " + ( 7000 + Math.floor( chronos*( 1 + orphalasLevel*0.75 )/2 )*500 ).toLocaleString() );
+    $("#99TTC").html( "99% treasure chests: " + (Math.ceil( Math.log( 0.995/( dora/10000*( 1 + senakhanLevel ) + 0.01 ) )/-0.006 )*500 ).toLocaleString() );
+    $("#1TTC").html( "1% treasure chests: " + (Math.ceil( Math.log( 0.015/( dora/10000*( 1 + senakhanLevel ) + 0.01 ) )/-0.006 )*500 ).toLocaleString() );
+    //Outsiders Table
+    $("#OutsidersTable tbody").html(
+        "<tr><td>Xyliqil</td><td>"+xyliqilLevel.toLocaleString()+"</td><td>"+getCostFromLevel(xyliqilLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>Chor'gorloth</td><td>"+chorLevel.toLocaleString()+"</td><td>"+getCostFromLevel(chorLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>Phandoryss</td><td>"+phanLevel.toLocaleString()+"</td><td>"+phanLevel.toLocaleString()+"</td><tr>"+
+        "<tr><td>Ponyboy</td><td>"+ponyLevel.toLocaleString()+"</td><td>"+getCostFromLevel(ponyLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>Borb</td><td>"+borbLevel.toLocaleString()+"</td><td>"+getCostFromLevel(borbLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>Rhageist</td><td>"+rhageistLevel.toLocaleString()+"</td><td>"+getCostFromLevel(rhageistLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>K'Ariqua</td><td>"+kariquaLevel.toLocaleString()+"</td><td>"+getCostFromLevel(kariquaLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>Orphalas</td><td>"+orphalasLevel.toLocaleString()+"</td><td>"+getCostFromLevel(orphalasLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>Sen-Akhan</td><td>"+senakhanLevel.toLocaleString()+"</td><td>"+getCostFromLevel(senakhanLevel).toLocaleString()+"</td><tr>"
+    );
+    $("#share").html(
+        xyliqilLevel+'/'+
+        chorLevel+'/'+
+        phanLevel+'/'+
+        ponyLevel+'//'+
+        borbLevel+'/'+
+        rhageistLevel+'/'+
+        kariquaLevel+'/'+
+        orphalasLevel+'/'+
+        senakhanLevel
+    );
+    $("#unspentAS").html( "Unspent: " + unspent );
+    
+    if (!$("#helpText").is(":checked")) {
+        $('#checkResults').parent().hide();
+    } else {
+        let infoMessage = "";
+        if (ancientSouls === 0) {
+            infoMessage += "<li>You need to have ancient souls for this to work. Transcend as soon as you unlock transcendence at zone 300. It's worth it.</li>";
         } else {
-            heroLevel = row.heroLevel.toLocaleString();
-        }
-        let title = "";
-        if (t === (timelapses.length - 1)) {
-            if (goldRequired) {
-                let zoneRequired = getZoneRequired(currentHero, useActive, logCps, logXylBonus);
-                if (zoneRequired <= userData.timelapseZoneMax) {
-                    title = "Unlocked immediately after the last timelapse.";
-                } else {
-                    let zonesTraveled;
-                    if (userData.borbLimit && (userData.borbLimit + 499) <= zoneRequired) {
-                        let flatZones = userData.borbLimit - userData.timelapseZoneMax;
-                        let n = zoneRequired - userData.borbLimit;
-                        let highZones = n + (n * n) / 10830;
-                        zonesTraveled = flatZones + highZones;
-                    } else {
-                        zonesTraveled = zoneRequired - userData.timelapseZoneMax;
+            if(ancientSouls < 2000) {
+                infoMessage += "<li>Your first ascension should be at zone 130, so that you can unlock Kuma and a few other ancients as soon as possible. This will speed up your ascensions a lot.</li>"
+                if (borbHze < borbLevel && ancientSouls > 50) {
+                    infoMessage += "<li>Only " + borbHze + " Borb is needed to have 2 monsters per zone on your final ascension, but " + borbFantR
+                    + " is needed to have 2 monsters per zone after ascending for the first time at zone 130.</li>";
+                    infoMessage += "<li>There are more ascensions than the last one. Borb is leveled higher to speed up earlier ascensions.</li>"
+                }
+            }
+            if (ancientSouls < 10500) {
+                infoMessage += "<li>Transcend after 3 or 4 ascensions that give <b>new</b> Ancient Souls. The ascension needs to earn you more HS than your previous transcend to count.</li>";
+                infoMessage += "<li>The Highest Zone below is an estimate and assumes you play active, which you should do as soon as you have 2 autoclickers.</li>"
+            } else {
+                if (ancientSouls < 27000) {
+                    infoMessage += "<li>The guideline that states '3 or 4 ascensions that give AS' <b>does not apply beyond 24% Transcendent Power!</b></li>";
+                    infoMessage += "<li>Keep ascending until you reach at least the estimated Highest Zone shown below. This will take longer (more ascensions) than you are used to.</li>";
+                    infoMessage += "<li>You are getting close to 25% Transcendent Power, therefore transcending won't give you as much of a boost like it did before.</li>"
+                }
+                if (ancientSouls >= 21000) {
+                    if (ancientSouls < 50000) {
+                        infoMessage += "<li>You have enough TP to reach any hero. You are limited only by your Borb level. You only transcend to put more levels into Borb.</li>";
+                        infoMessage += "<li>The last 4 Outsiders are impractical/impossible to maintain at high zones so they are kept at 0. <b>This is not a bug!</b></li>";
                     }
-                    
-                    let hoursRequired = zonesTraveled / 8050;
-                    let h = Math.floor(hoursRequired);
-                    let m = Math.round((hoursRequired - h) * 60);
-                    if (m < 10) m = "0" + m;
-                    let time = h + ":" + m;
-                    title = "Reachable at around zone " + zoneRequired.toLocaleString() + " which is " + time + " hours in.";
-                }
-            } else if (timelapses.length > 1 && timelapses[timelapses.length - 1]) {
-                if (timelapses[timelapses.length - 2].bestHero === currentHero) {
-                    title = "Unlocked during timelapses.";
-                } else {
-                    title = "Unlocked immediately after the last timelapse.";
+                    if (this.newHze < 5.37e6 && buffedMPZ > 10) {
+                        infoMessage += "<li>You can do one less ascension than what the Highest Zone estimate requires if you want a more pleasant run. It will only be a bit less than optimal long term.</li>"
+                    }
                 }
             }
         }
-        toappend += "<tr title='" + title + "'><td>" + row.duration + "</td><td>" + row.bestHero + "</td><td>" + heroLevel + "</td><td>" + row.zoneDisplay + "</td>";
-    }
-    $("#TimelapsesTable tbody").html(toappend);
-    $("#RubyCost").html("Total Rubies: " + rubyCost.toLocaleString());
-    
-    let numTLs = timelapses.length - 1;
-    let altAction = false;
-    userData.highestZone = timelapses[numTLs].zone;
-    if (userData.data) {
-        altAction = checkAncients();
-    } else {
-        $("#ancientCheckResults").parent().hide();
-        $('html, body').animate({
-            scrollTop: ($('#results').offset().top)
-        },200);
-    }
-    
-    // Recommended action
-    let action;
-    let maxQAZone = parseFloat($("#mostZonesOverOneMil").val() || 1e6);
-    maxQAZone = Math.floor(maxQAZone);
-    maxQAZone = Math.floor(1e6 + (maxQAZone * .2));
-    $("#mostZonesOverOneMil").val(maxQAZone.toString().replace(/\+/g,''));
-    if (altAction) {
-        action = altAction;
-    } else if(numTLs === 0) {
-        action = "Save your rubies.";
-    } else if(previousHZT > maxQAZone) {
-        action = "Use Timelapses as shown above.";
-    } else if(userData.QAStrat === "perRuby"){
-        let rubyCostTL = rubyCost - numTLs * 2; //consider mercenaries (estimated 2 rubies per TL)
-        let maxZoneTL = timelapses[numTLs - 1].zone;
-        let zonesPerRubyTL = maxZoneTL / rubyCostTL;
-        let zonesPerRubyQA = previousHZT / 50;
-        if(zonesPerRubyTL > zonesPerRubyQA) {
-            action = "Use Timelapses as shown above.";
+        if (infoMessage !== "") {
+            $('#checkResults').html("<ul>"+infoMessage+"</ul>");
+            $('#checkResults').parent().show();
         } else {
-            action = "Use Quick Ascension.";
-        }
-    } else {
-        let maxZoneTL = timelapses[numTLs - 1].zone;
-        if(maxZoneTL > previousHZT) {
-            action = "Use Timelapses as shown above.";
-        } else {
-            action = "Use Quick Ascension.";
+            $('#checkResults').parent().hide();
         }
     }
-    $("#Recommend").html("Recommended: " + action);
+    
+    $("#outputsave").html("");
+    if (autolevelEnabled) {
+        return [xyliqilLevel, chorLevel, phanLevel, ponyLevel, borbLevel, rhageistLevel, kariquaLevel, orphalasLevel, senakhanLevel, unspent];
+    }
+    
+    updateTable(ancientSouls, borbLevel, this.newHze, buffedMPZ, this.newAncientSouls, zoneOverride>0?true:false);
+}
+
+function tpDisplay(ancientSouls) {
+    if (ancientSouls >= 124767) {
+        return "25%"
+    }
+    let tp = (25 - 23 * Math.exp(-0.0003 * ancientSouls));
+    if (tp === 25) {
+        return "24.9999%"
+    }
+    return tp.toString().substring(0,tp<10?6:7) + "%";
 }
 
 function test() {
-    let readout = "[\n";
-    let options = {
-        test: true,
-        xyliqilLevel: 0,
-        chorLevel: 0,
-        autoClickers: 0,
-        minZones: 20000,
-        ascTime: 0
-    }
-    for (let i = 100; i < 2e5; i *= 2) {
-        options.logHeroSouls = i;
-        readout += "    " + refresh(options) + ",\n";
-    }
-    options.logHeroSouls = 1000;
-    for (let i = 100; i < 1e7; i *= 10) {
-        options.xyliqilLevel = i;
-        readout += "    " + refresh(options) + ",\n";
-    }
-    options.xyliqilLevel = 0;
-    for (let i = 50; i < 200; i += 50) {
-        options.chorLevel = i;
-        readout += "    " + refresh(options) + ",\n";
-    }
-    options.chorLevel = 0;
-    for (let i = 1; i < 1e12; i *= 100) {
-        options.autoClickers = i;
-        readout += "    " + refresh(options) + ",\n";
+    var cases = [0,1,10,100,500,1000,5000,10000,12500,15000,17500,20000,50000,100000,200000,300000,400000,500000];
+        readout = "[\n";
+    for (i=0;i<cases.length;i++) {
+        readout += "    " + refresh(true,cases[i]) + ",\n";
     }
     readout = readout.slice(0, -2);
     readout += "\n]";
-    $("#savegame").val(readout);
+    console.log(readout);
 }
 
 function enterKey(ev) {
-    if (ev.which === 13) refresh();
+    if (ev.which === 13) {
+        clearOutput();
+        refresh();
+    }
 }
+
+$("#ancient_souls").keyup(enterKey);
+$("#zoneOverride").keyup(enterKey);
 
 function changeTheme() {
     if ($("#dark").is(":checked")) {
@@ -907,23 +509,28 @@ function changeTheme() {
     if (localStorage) localStorage.setItem("darkmode", $("#dark").is(":checked"));
 }
 
+function toggleStatsHZE() {
+    $("#unbuffedHZE").toggle();
+    $("#buffedHZE").toggle();
+    if (localStorage) localStorage.setItem("statsHZE", $("#statsHZE").is(":checked"));
+}
+
 $(setDefaults);
+
 
 $(function() {
     if (localStorage) {
+        $("#statsHZE").prop("checked", localStorage.getItem("statsHZE")==="true");
+        if (localStorage.getItem("statsHZE")==="true") {
+            toggleStatsHZE();
+        }
         $("#dark").prop("checked", localStorage.getItem("darkmode")==="true");
     }
-
     $('.collapsible .title').click(function(){
         $(this).parent().find('.content').toggle();
     });
-    
-    $("#hero_souls").keyup(enterKey);
 
-    $("#chor_level").keyup(enterKey);
-
-    $("#autoclickers").keyup(enterKey);
-
-    $("#minZones").keyup(enterKey);
-    
-    $("#ascTime").keyup(enterKey);
+    $('.numberInput p').click(function(){
+        $(this).parent().find('input').focus();
+    });
+});
