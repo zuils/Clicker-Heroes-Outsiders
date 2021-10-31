@@ -254,7 +254,7 @@ function refresh(test, ancientSouls, simulating) {
     } else if (ancientSouls < 21000) {
         rhageistRatio = 0.2;
         kariquaRatio = 0.01;
-        orphalasRatio = .2;
+        orphalasRatio = 0.2;
         senakhanRatio = 0.05;
     } else {
         rhageistRatio = 0;
