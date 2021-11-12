@@ -255,8 +255,8 @@ function refresh(test, ancientSouls, simulating) {
     if (this.getCostFromLevel(borbLevel) > (this.remainingAncientSouls - 5)) {
         borbLevel = this.spendAS(1, this.remainingAncientSouls - 5);
     }
+    xylLevel = Math.floor(borbLevel / 3);
     this.remainingAncientSouls -= this.getCostFromLevel(borbLevel);
-    xylLevel = this.spendAS(.5, this.remainingAncientSouls);
     // Outsider Ratios
     let rhageistRatio;
     let kariquaRatio;
@@ -277,7 +277,7 @@ function refresh(test, ancientSouls, simulating) {
     } else {
         rhageistRatio = 0;
         kariquaRatio = 0;
-        orphalasRatio = .8;
+        orphalasRatio = xylLevel;
         senakhanRatio = 0;
     }
         
@@ -286,7 +286,7 @@ function refresh(test, ancientSouls, simulating) {
     }
         
     // If orphalas ratio is greater than 1
-    // We level xyl a 1/3 borb
+    // We level xyl based on borb
     if (orphalasRatio < 1) {
         xyliqilLevel = this.getCostFromLevel(orphalasCap) > (this.remainingAncientSouls * orphalasRatio)
         ? this.spendAS(orphalasRatio, this.remainingAncientSouls)
