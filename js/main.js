@@ -200,8 +200,8 @@ function refresh(test, ancientSouls, simulating) {
         let nonBorb = ancientSouls > 433000 ? 500 : 1000;
         let b = this.spendAS(1, ancientSouls - nonBorb);
         borbTarget = b * 5000;
-        if (b > 1026) {
-            this.newHze = 5.46e6;
+        if (b > 1115) {
+            this.newHze = 6.438e6;
         } else if (borbToZone[b]) {
             this.newHze = Math.max(borbTarget + 500, borbToZone[b]);
         } else {
@@ -239,33 +239,6 @@ function refresh(test, ancientSouls, simulating) {
     let orphalasCap = Math.ceil(((100 - unbuffedPrimalBossChance) / chronos - 1) / 0.25);
     let senakhanCap = Math.max(1, Math.ceil((100 / unbuffedTreasureChestChance) / (dora / 100 + 1) - 1));
 
-    // Outsider Ratios
-    let rhageistRatio;
-    let kariquaRatio;
-    let orphalasRatio;
-    let senakhanRatio;
-
-    if (ancientSouls < 100) {
-        let ratioChange = ancientSouls / 100;
-        rhageistRatio = 0.2*ratioChange;
-        kariquaRatio = 0.01*ratioChange;
-        orphalasRatio = 0.1*ratioChange;
-        senakhanRatio = 0.05*ratioChange;
-    } else if (ancientSouls < 21000) {
-        rhageistRatio = 0.2;
-        kariquaRatio = 0.01;
-        orphalasRatio = 0.25;
-        senakhanRatio = 0.05;
-    } else {
-        rhageistRatio = 0;
-        kariquaRatio = 0;
-        orphalasRatio = .3;
-        senakhanRatio = 0;
-    }
-    
-    if(!$("#levelOrphalas").is(":checked")) {
-        orphalasRatio = 0;
-    }
 
     // Outsider Leveling
     this.remainingAncientSouls = ancientSouls;
@@ -282,13 +255,46 @@ function refresh(test, ancientSouls, simulating) {
     if (this.getCostFromLevel(borbLevel) > (this.remainingAncientSouls - 5)) {
         borbLevel = this.spendAS(1, this.remainingAncientSouls - 5);
     }
-
     this.remainingAncientSouls -= this.getCostFromLevel(borbLevel);
+    xylLevel = this.spendAS(.5, this.remainingAncientSouls);
+    // Outsider Ratios
+    let rhageistRatio;
+    let kariquaRatio;
+    let orphalasRatio;
+    let senakhanRatio;
     
-    // Xyl is cool now
-    let xyliqilLevel = this.getCostFromLevel(orphalasCap) > (this.remainingAncientSouls * orphalasRatio)
-    ? this.spendAS(orphalasRatio, this.remainingAncientSouls)
-    : orphalasCap;
+    if (ancientSouls < 100) {
+        let ratioChange = ancientSouls / 100;
+        rhageistRatio = 0.2*ratioChange;
+        kariquaRatio = 0.01*ratioChange;
+        orphalasRatio = 0.2*ratioChange;
+        senakhanRatio = 0.05*ratioChange;
+    } else if (ancientSouls < 21000) {
+        rhageistRatio = 0.2;
+        kariquaRatio = 0.01;
+        orphalasRatio = 0.3;
+        senakhanRatio = 0.05;
+    } else {
+        rhageistRatio = 0;
+        kariquaRatio = 0;
+        orphalasRatio = .8;
+        senakhanRatio = 0;
+    }
+        
+    if(!$("#levelOrphalas").is(":checked")) {
+        orphalasRatio = 0;
+    }
+        
+    // If orphalas ratio is greater than 1
+    // We level xyl a 1/3 borb
+    if (orphalasRatio < 1) {
+        xyliqilLevel = this.getCostFromLevel(orphalasCap) > (this.remainingAncientSouls * orphalasRatio)
+        ? this.spendAS(orphalasRatio, this.remainingAncientSouls)
+        : orphalasCap;      
+    } else {
+        xyliqilLevel = this.spendAS(1, this.remainingAncientSouls - orphalasRatio);
+    }
+
     this.remainingAncientSouls -= this.getCostFromLevel(xyliqilLevel);
 
     // Remove souls if using Reserve AS
