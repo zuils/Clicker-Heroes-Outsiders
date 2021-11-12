@@ -18,7 +18,7 @@ function updateTable(ancientSouls, borbLevel, newHze, buffedMPZ, newAncientSouls
         +"</td><td>"+getDuration(borbLevel,newHze)+"</td></tr>"
     );
     if (singlePass) return;
-    while (newHze < 5.46e6) {
+    while (newHze < 6.438e6) {
         nextTrans = refresh(false, newAncientSouls, true);
         ancientSouls = nextTrans[0];
         borbLevel = nextTrans[1];
@@ -38,7 +38,7 @@ function updateTable(ancientSouls, borbLevel, newHze, buffedMPZ, newAncientSouls
 
 function getDuration(borbLevel, zone) {
     if (zone < 200000) return "";
-    if (zone >= 5.46e6) return Infinity;
+    if (zone >= 6.438e6) return Infinity;
     let durationSeconds;
     if (zone < 1e6)
         durationSeconds = Math.floor(zone / 8050 * 3600);
