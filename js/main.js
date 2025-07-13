@@ -200,7 +200,7 @@ function refresh(test, ancientSouls, simulating) {
         let nonBorb = ancientSouls > 433000 ? 500 : 1000;
         let b = this.spendAS(1, ancientSouls - nonBorb);
         borbTarget = b * 5000;
-        if (b > 1026) {
+        if (b > 1016) {
             this.newHze = 5.46e6;
         } else if (borbToZone[b]) {
             this.newHze = Math.max(borbTarget + 500, borbToZone[b]);
